@@ -5,11 +5,11 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  getKanyeQuote,
+  getLogs,
 } from "../utils/reduxstore/actions/actions"
 import {
   countSelector,
-  kanyeQuoteSelector,
+  logsSelector,
 } from "../utils/reduxstore/selectors/selectors"
 import Layout, { siteTitle } from "../components/layout"
 // import Head from "next/head"
@@ -19,11 +19,15 @@ import styles from "../styles/Home.module.css"
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
   const { value } = useAppSelector(countSelector)
-  const { data, pending, error } = useAppSelector(kanyeQuoteSelector)
+  const { logs, pending, error } = useAppSelector(logsSelector)
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0)
+
+  React.useEffect(() => {
+    dispatch(getLogs())
+  }, [dispatch])
   return (
     <Layout>
-      <h1>Welcome to the greatest app in the world!</h1>
+      {/* <h1>Welcome to the greatest app in the world!</h1>
       <h2>
         The current number is
         {value}
@@ -43,21 +47,16 @@ const Home: NextPage = () => {
       <div>
         <button onClick={() => dispatch(decrement())}>Decrement by 1</button>
         <button onClick={() => dispatch(increment())}>Increment by 1</button>
-      </div>
-      <br />
-      <br />
-      <br />
-      <>
-        <div>
-          <h2>Generate random Kanye West quote</h2>
-          {pending && <p>Loading...</p>}
-          {data && <p>{data.quote}</p>}
-          {error && <p>Oops, something went wrong</p>}
-          <button onClick={() => dispatch(getKanyeQuote())} disabled={pending}>
-            Generate Kanye Quote
-          </button>
-        </div>
-      </>
+      </div> */}
+      <ul className="collection with-header">
+        <li className="collection-header">
+          <h4 className="center">System Logs</h4>
+        </li>
+        {logs &&
+          logs.map((log) => {
+            return <p key={log.id}>{log.title}</p>
+          })}
+      </ul>
     </Layout>
   )
 }

@@ -31,7 +31,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header>
+      <header
+        style={{
+          marginBottom: "100px",
+          display: "block",
+          width: "100%",
+        }}
+      >
         <SearchBar />
       </header>
       <main className="container">{children}</main>

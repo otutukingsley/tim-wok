@@ -5,6 +5,6 @@ import { RootState } from "../store/store"
 export const selectCount = (state: RootState) => state.counter
 export const countSelector = createSelector(selectCount, (state) => state)
 
-// Quote Selector
-export const selectQuote = (state: RootState) => state.kanye
-export const kanyeQuoteSelector = createSelector(selectQuote, (state) => state)
+//Logs Selector
+export const selectLogs = (state: RootState) => state.logs
+export const logsSelector = createSelector(selectLogs, (state) => state)

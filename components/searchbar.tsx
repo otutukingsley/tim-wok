@@ -2,7 +2,15 @@ import React, { FC } from "react"
 
 const searchbar: FC = () => {
   return (
-    <nav className="mb-3 orange">
+    <nav
+      className="orange"
+      style={{
+        position: "fixed",
+        zIndex: "9999",
+        top: "0",
+        left: "0",
+      }}
+    >
       <div className="nav-wrapper">
         <form>
           <div className="input-field">

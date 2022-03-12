@@ -3,23 +3,32 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  getKanyeQuote,
+  getLogs,
 } from "../actions/actions"
 
-type CounterState = {
+export type Logs = {
+  description: string
+  title: string
+  done: boolean
+  inProgress: boolean
+  engineer: string
+  date: string
+  engineerId: any
+  id: any
+}[]
+
+export type LogState = {
   value: number
-  data?: {
-    quote: string
-  }
+  logs?: Logs
   pending?: boolean
-  error?: boolean
+  error?: string
 }
 
-const initialState: CounterState = {
+const initialState: LogState = {
   value: 0,
-  data: { quote: "click that button" },
+  logs: [],
   pending: false,
-  error: false,
+  error: "",
 }
 
 export const counterReducer = createReducer(initialState, (builder) => {
@@ -35,17 +44,17 @@ export const counterReducer = createReducer(initialState, (builder) => {
     })
 })
 
-export const kanyeReducer = createReducer(initialState, (builder) => {
+export const logsReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(getKanyeQuote.pending, (state) => {
+    .addCase(getLogs.pending, (state) => {
       state.pending = true
     })
-    .addCase(getKanyeQuote.fulfilled, (state, { payload }) => {
+    .addCase(getLogs.fulfilled, (state, { payload }) => {
       state.pending = false
-      state.data = payload
+      state.logs = payload
     })
-    .addCase(getKanyeQuote.rejected, (state) => {
+    .addCase(getLogs.rejected, (state, { error }) => {
       state.pending = false
-      state.error = true
+      state.error = error.message
     })
 })

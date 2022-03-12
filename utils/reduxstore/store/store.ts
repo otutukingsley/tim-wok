@@ -1,11 +1,11 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit"
-import { counterReducer, kanyeReducer } from "../reducers/reducers"
+import { counterReducer, logsReducer } from "../reducers/reducers"
 
 export const store = configureStore({
   reducer: {
     //This is where we add reducers
     counter: counterReducer,
-    kanye: kanyeReducer,
+    logs: logsReducer,
   },
 })
 
