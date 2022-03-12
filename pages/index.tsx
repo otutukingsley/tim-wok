@@ -11,6 +11,7 @@ import {
   countSelector,
   kanyeQuoteSelector,
 } from "../utils/reduxstore/selectors/selectors"
+import Layout, { siteTitle } from "../components/layout"
 // import Head from "next/head"
 // import Image from "next/image"
 import styles from "../styles/Home.module.css"
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
   const { data, pending, error } = useAppSelector(kanyeQuoteSelector)
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0)
   return (
-    <>
+    <Layout>
       <h1>Welcome to the greatest app in the world!</h1>
       <h2>
         The current number is
@@ -57,7 +58,7 @@ const Home: NextPage = () => {
           </button>
         </div>
       </>
-    </>
+    </Layout>
   )
 }
 

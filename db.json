@@ -1,0 +1,49 @@
+{
+  "logs": [
+    {
+      "description": "Please remove logs of wood",
+      "title": "Remove log",
+      "done": false,
+      "inProgress": false,
+      "engineer": "Richie otutu",
+      "date": "2021-11-06T01:14:19.031Z",
+      "engineerId": 1,
+      "id": 1
+    },
+    {
+      "description": "Please remove logs of wood",
+      "title": "Remove log",
+      "needsAttention": true,
+      "done": false,
+      "inProgress": false,
+      "engineer": "Richie otutu",
+      "date": "2021-11-06T01:14:19.031Z",
+      "engineerId": 1,
+      "id": 2
+    }
+  ],
+  "engineers": [
+    {
+      "firstName": "Richie",
+      "lastName": "otutu",
+      "email": "richie@richie.com",
+      "id": 1
+    }
+  ],
+
+  "comments": [
+    {
+      "logId": 1,
+      "id": 1,
+      "logPost": [
+        {
+          "engineerId": 1,
+          "date": "2021-11-06T01:14:19.031Z",
+          "comment": "long way to get here lol",
+          "firstName": "Richie",
+          "lastName": "Otutu"
+        }
+      ]
+    }
+  ]
+}

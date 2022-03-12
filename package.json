@@ -6,17 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "json-server": "json-server --watch db.json --port 5500",
+    "devmode": "concurrently \"next dev\" \"npm run json-server\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
+    "materialize-css": "^1.0.0-rc.2",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
+    "@types/materialize-css": "^1.0.11",
     "@types/node": "17.0.21",
     "@types/react": "17.0.40",
     "concurrently": "^7.0.0",
