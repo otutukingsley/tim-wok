@@ -11,15 +11,16 @@ export type Logs = {
   title: string
   done: boolean
   inProgress: boolean
+  needsAttention: boolean
   engineer: string
   date: string
   engineerId: any
   id: any
-}[]
+}
 
 export type LogState = {
   value: number
-  logs?: Logs
+  logs?: Logs[]
   pending?: boolean
   error?: string
 }

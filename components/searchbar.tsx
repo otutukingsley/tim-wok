@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-const searchbar: FC = () => {
+const Searchbar: FC = () => {
   return (
     <nav
       className="orange"
@@ -26,4 +26,4 @@ const searchbar: FC = () => {
   )
 }
 
-export default searchbar
+export default Searchbar

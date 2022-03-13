@@ -1,18 +1,19 @@
 {
   "logs": [
     {
-      "description": "Please remove logs of wood",
-      "title": "Remove log",
+      "description": "Fix navigation slider",
+      "title": "Fix navigation slider",
       "done": false,
-      "inProgress": false,
+      "inProgress": true,
+      "needsAttention": false,
       "engineer": "Richie otutu",
       "date": "2021-11-06T01:14:19.031Z",
       "engineerId": 1,
       "id": 1
     },
     {
-      "description": "Please remove logs of wood",
-      "title": "Remove log",
+      "description": "Backend server down",
+      "title": "Backend server down",
       "needsAttention": true,
       "done": false,
       "inProgress": false,
@@ -20,6 +21,17 @@
       "date": "2021-11-06T01:14:19.031Z",
       "engineerId": 1,
       "id": 2
+    },
+    {
+      "description": "Multiple inputs functionality",
+      "title": "Multiple inputs functionality",
+      "needsAttention": false,
+      "done": true,
+      "inProgress": false,
+      "engineer": "Richie otutu",
+      "date": "2021-11-06T01:14:19.031Z",
+      "engineerId": 1,
+      "id": 3
     }
   ],
   "engineers": [

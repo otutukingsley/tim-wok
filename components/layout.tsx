@@ -1,4 +1,5 @@
 import Head from "next/head"
+import AddBtn from "./addBtn"
 import SearchBar from "./searchbar"
 
 export const siteTitle = "IT-Logger"
@@ -40,7 +41,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         <SearchBar />
       </header>
-      <main className="container">{children}</main>
+      <main className="container">
+        {children}
+        <AddBtn />
+      </main>
     </>
   )
 }

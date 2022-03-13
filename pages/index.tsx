@@ -15,6 +15,8 @@ import Layout, { siteTitle } from "../components/layout"
 // import Head from "next/head"
 // import Image from "next/image"
 import styles from "../styles/Home.module.css"
+import LogItems from "../components/logitems"
+import Loader from "../components/loader"
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -48,15 +50,23 @@ const Home: NextPage = () => {
         <button onClick={() => dispatch(decrement())}>Decrement by 1</button>
         <button onClick={() => dispatch(increment())}>Increment by 1</button>
       </div> */}
-      <ul className="collection with-header">
-        <li className="collection-header">
-          <h4 className="center">System Logs</h4>
-        </li>
-        {logs &&
-          logs.map((log) => {
-            return <p key={log.id}>{log.title}</p>
-          })}
-      </ul>
+      <div className="activity-heading-container">
+        <h4 className="activity-heading center">Activity Logs</h4>
+      </div>
+      {pending ? (
+        <div className="center">
+          <Loader />
+        </div>
+      ) : error ? (
+        <li className="collection-item">{error}</li>
+      ) : (
+        <ul className="collection shadow">
+          {logs &&
+            logs.map((log) => {
+              return <LogItems key={log.id} logs={log} />
+            })}
+        </ul>
+      )}
     </Layout>
   )
 }
