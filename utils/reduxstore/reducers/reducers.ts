@@ -4,6 +4,7 @@ import {
   increment,
   incrementByAmount,
   getLogs,
+  addLogs,
 } from "../actions/actions"
 
 export type Logs = {
@@ -15,7 +16,7 @@ export type Logs = {
   engineer: string
   date: string
   engineerId: any
-  id: any
+  id?: any
 }
 
 export type LogState = {
@@ -55,6 +56,21 @@ export const logsReducer = createReducer(initialState, (builder) => {
       state.logs = payload
     })
     .addCase(getLogs.rejected, (state, { error }) => {
+      state.pending = false
+      state.error = error.message
+    })
+})
+
+export const addLogsReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(addLogs.pending, (state) => {
+      state.pending = true
+    })
+    .addCase(addLogs.fulfilled, (state, { payload }) => {
+      state.pending = false
+      state.logs = state.logs && [...state.logs, payload]
+    })
+    .addCase(addLogs.rejected, (state, { error }) => {
       state.pending = false
       state.error = error.message
     })

@@ -74,6 +74,32 @@ p {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
+/* label focus color */
+.input-field input[type="text"]:focus + label {
+  color: #ff9800;
+}
+/* label underline focus color */
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid #ff9800;
+  box-shadow: 0 1px 0 0 #ff9800;
+}
+
+/* label focus color */
+.input-field input[type="text"]:focus + label,
+.materialize-textarea:focus:not([readonly]) + label {
+  color: #ff9800 !important;
+}
+
+/* label underline focus color */
+.input-field input[type="text"]:focus,
+.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ff9800 !important;
+  box-shadow: 0 1px 0 0 #ff9800 !important;
+}
+
+ul.dropdown-content.select-dropdown li span {
+  color: #000;
+}
 
 /*LOADER*/
 .lds-facebook {
@@ -102,6 +128,7 @@ p {
   left: 56px;
   animation-delay: 0;
 }
+
 @keyframes lds-facebook {
   0% {
     top: 8px;

@@ -6,6 +6,7 @@ import {
   increment,
   incrementByAmount,
   getLogs,
+  addLogs,
 } from "../utils/reduxstore/actions/actions"
 import {
   countSelector,

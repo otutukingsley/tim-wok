@@ -1,5 +1,6 @@
 import Head from "next/head"
 import AddBtn from "./addBtn"
+import AddLogModal from "./addLogModal"
 import SearchBar from "./searchbar"
 
 export const siteTitle = "IT-Logger"
@@ -44,6 +45,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="container">
         {children}
         <AddBtn />
+        <AddLogModal />
       </main>
     </>
   )

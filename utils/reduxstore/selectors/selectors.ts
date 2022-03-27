@@ -8,3 +8,7 @@ export const countSelector = createSelector(selectCount, (state) => state)
 //Logs Selector
 export const selectLogs = (state: RootState) => state.logs
 export const logsSelector = createSelector(selectLogs, (state) => state)
+
+//addLogs Selector
+export const addLogs = (state: RootState) => state.logs
+export const addLogsSelector = createSelector(selectLogs, (state) => state)
