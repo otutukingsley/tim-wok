@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { Logs } from "../utils/reduxstore/reducers/reducers"
+import { Logs } from "../utils/reduxstore/types/types"
 import Moment from "react-moment"
 
 type LogProps = {
@@ -11,11 +11,11 @@ const LogItems: FC<LogProps> = ({ logs }) => {
     <li className="collection-item custom-list">
       <div
         className={`custom-badge ${
-          logs.needsAttention
+          logs.type === "attention"
             ? "custom-badge-bg-red"
-            : logs.inProgress
+            : logs.type === "progress"
             ? "custom-badge-bg-orange"
-            : logs.done
+            : logs.type === "done"
             ? "custom-badge-bg-green"
             : ""
         }`}
@@ -28,7 +28,7 @@ const LogItems: FC<LogProps> = ({ logs }) => {
           </a>
           <span className="grey-text">
             <span className="black-text">#{logs.id}</span> last updated by{" "}
-            <span className="black-text">{logs.engineer}</span> on{" "}
+            <span className="black-text">{logs.member}</span> on{" "}
             <Moment format="ddd, MMM Do YYYY">{logs.date}</Moment>
           </span>
         </div>

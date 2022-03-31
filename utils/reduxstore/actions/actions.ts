@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { Logs } from "../reducers/reducers"
+import { Logs, Members } from "../types/types"
 import { AppDispatch } from "../store/store"
 
 export const increment = createAction("counter/increment")
@@ -11,7 +11,7 @@ export const incrementByAmount = createAction<number>(
 
 export const getLogs = createAsyncThunk("log/getlogs", async () => {
   const { data } = await axios.get("http://localhost:5500/logs")
-  return data
+  return data as Logs[]
 })
 
 export const addLogs = createAsyncThunk<Logs, Logs>(
@@ -25,3 +25,8 @@ export const addLogs = createAsyncThunk<Logs, Logs>(
     return data as Logs
   }
 )
+
+export const getMembers = createAsyncThunk("members/getmembers", async () => {
+  const { data } = await axios.get("http://localhost:5500/members")
+  return data as Members[]
+})

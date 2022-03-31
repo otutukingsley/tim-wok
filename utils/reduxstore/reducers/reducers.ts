@@ -5,32 +5,16 @@ import {
   incrementByAmount,
   getLogs,
   addLogs,
+  getMembers,
 } from "../actions/actions"
-
-export type Logs = {
-  description: string
-  title: string
-  done: boolean
-  inProgress: boolean
-  needsAttention: boolean
-  engineer: string
-  date: string
-  engineerId: any
-  id?: any
-}
-
-export type LogState = {
-  value: number
-  logs?: Logs[]
-  pending?: boolean
-  error?: string
-}
+import { LogState } from "../types/types"
 
 const initialState: LogState = {
   value: 0,
   logs: [],
   pending: false,
   error: "",
+  members: [],
 }
 
 export const counterReducer = createReducer(initialState, (builder) => {
@@ -71,6 +55,21 @@ export const addLogsReducer = createReducer(initialState, (builder) => {
       state.logs = state.logs && [...state.logs, payload]
     })
     .addCase(addLogs.rejected, (state, { error }) => {
+      state.pending = false
+      state.error = error.message
+    })
+})
+
+export const membersReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(getMembers.pending, (state) => {
+      state.pending = true
+    })
+    .addCase(getMembers.fulfilled, (state, { payload }) => {
+      state.pending = false
+      state.members = payload
+    })
+    .addCase(getMembers.rejected, (state, { error }) => {
       state.pending = false
       state.error = error.message
     })

@@ -1,19 +1,17 @@
-.box {
-  width: 100%;
-  max-width: 400px;
-  margin: 2rem auto;
-  background: white;
-  border: 1px solid white;
-  border-radius: 3px;
-  text-align: left;
-}
-
 input[type="radio"] {
   display: none;
 }
 
-.active-label {
-  color: blue;
+.done-label {
+  color: green;
+}
+
+.attention-label {
+  color: red;
+}
+
+.progress-label-label {
+  color: #ff9800;
 }
 
 .active-label:before {
@@ -24,16 +22,15 @@ input[type="radio"] {
 /**
  * Make those labels sexy
  */
-label {
+.radio-label {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1;
   cursor: pointer;
   display: block;
   padding: 1rem 1rem 1rem 3rem;
   position: relative;
   border-top: 1px solid rgba(black, 0.1);
-  background: white;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: all 0.15s ease;
@@ -42,7 +39,7 @@ label {
 /**
    * This is the radio fake dot basically
    */
-label::before {
+.radio-label::before {
   content: "";
   position: absolute;
   left: 1rem;
@@ -53,45 +50,91 @@ label::before {
   border: 0.2rem solid #ccc;
 }
 
-label:active {
-  color: blue;
+.done:active {
+  color: green;
 }
 
-label:focus {
-  color: blue;
+.done:focus {
+  color: green;
 }
 
-label:hover {
-  color: blue;
+.done:hover {
+  color: green;
 }
 
-label:first-of-type {
+.done:first-of-type {
   border: 0;
 }
 
-input:checked + label {
-  color: blue;
+.done-input:checked + .done {
+  color: green;
 }
 
-input:checked + label::before {
+.done-input:checked + .done::before {
   border-color: white;
   border: none;
-  background: blue;
+  background: green;
 }
 
-/**
- * How it should look when disabled
- */
-input:disabled + label {
-  background: #efefef;
-  color: rgba(black, 0.5);
-  cursor: not-allowed;
-}
-input:disabled + label :hover {
-  border-color: rgba(black, 0.1);
+.attention:active {
+  color: red;
 }
 
-input:disabled + label ::before {
+.attention:focus {
+  color: red;
+}
+
+.attention:hover {
+  color: red;
+}
+
+.attention:first-of-type {
+  border: 0;
+}
+
+.attention-input:checked + .attention {
+  color: red;
+}
+
+.attention-input:checked + .attention::before {
   border-color: white;
-  background: white;
+  border: none;
+  background: red;
+}
+
+.progress-label:active {
+  color: #ff9800;
+}
+
+.progress-label:focus {
+  color: #ff9800;
+}
+
+.progress-label:hover {
+  color: #ff9800;
+}
+
+.progress-label:first-of-type {
+  border: 0;
+}
+
+.progress-input:checked + .progress-label {
+  color: #ff9800;
+}
+
+.progress-input:checked + .progress-label::before {
+  border-color: white;
+  border: none;
+  background: #ff9800;
+}
+
+.back {
+  font-weight: 700;
+  color: #ff9800 !important;
+}
+
+.submit-btn {
+  background-color: #ff9800 !important;
+  color: #fff !important;
+  font-weight: 700;
 }

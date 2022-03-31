@@ -3,58 +3,54 @@
     {
       "description": "Fix navigation slider",
       "title": "Fix navigation slider",
-      "done": false,
-      "inProgress": true,
-      "needsAttention": false,
-      "engineer": "Richie otutu",
+      "type": "attention",
+      "member": "Richie otutu",
       "date": "2021-11-06T01:14:19.031Z",
-      "engineerId": 1,
       "id": 1
     },
     {
       "description": "Backend server down",
       "title": "Backend server down",
-      "needsAttention": true,
-      "done": false,
-      "inProgress": false,
-      "engineer": "Richie otutu",
+      "type": "done",
+      "member": "Richie otutu",
       "date": "2021-11-06T01:14:19.031Z",
-      "engineerId": 1,
       "id": 2
     },
     {
       "description": "Multiple inputs functionality",
       "title": "Multiple inputs functionality",
-      "needsAttention": false,
-      "done": true,
-      "inProgress": false,
-      "engineer": "Richie otutu",
+      "type": "attention",
+      "member": "Richie otutu",
       "date": "2021-11-06T01:14:19.031Z",
-      "engineerId": 1,
       "id": 3
+    },
+    {
+      "description": "Multiple inputs functionality",
+      "title": "Multiple inputs functionality",
+      "type": "attention",
+      "member": "Richie otutu4444",
+      "date": "2021-11-06T01:14:19.031Z",
+      "id": 4
     }
   ],
-  "engineers": [
+  "members": [
     {
       "firstName": "Richie",
       "lastName": "otutu",
       "email": "richie@richie.com",
       "id": 1
-    }
-  ],
-  "comments": [
+    },
     {
-      "logId": 1,
-      "id": 1,
-      "logPost": [
-        {
-          "engineerId": 1,
-          "date": "2021-11-06T01:14:19.031Z",
-          "comment": "long way to get here lol",
-          "firstName": "Richie",
-          "lastName": "Otutu"
-        }
-      ]
+      "firstName": "Kendrick",
+      "lastName": "Perkins",
+      "email": "kperk@aol.com",
+      "id": 2
+    },
+    {
+      "firstName": "Miles",
+      "lastName": "Bridges",
+      "email": "milesb@test.com",
+      "id": 3
     }
   ]
 }

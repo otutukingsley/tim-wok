@@ -10,8 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
     const M = require("materialize-css/dist/js/materialize")
     M.AutoInit()
-    // M.toast({ html: "Please enter a message and tech", classes: "red" })
-  })
+  }, [])
   return (
     <Provider store={store}>
       <Component {...pageProps} />

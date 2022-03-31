@@ -10,7 +10,7 @@ import {
 } from "../utils/reduxstore/actions/actions"
 import {
   countSelector,
-  logsSelector,
+  getLogsSelector,
 } from "../utils/reduxstore/selectors/selectors"
 import Layout, { siteTitle } from "../components/layout"
 // import Head from "next/head"
@@ -22,7 +22,7 @@ import Loader from "../components/loader"
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
   const { value } = useAppSelector(countSelector)
-  const { logs, pending, error } = useAppSelector(logsSelector)
+  const { logs, pending, error } = useAppSelector(getLogsSelector)
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0)
 
   React.useEffect(() => {

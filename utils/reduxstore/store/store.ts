@@ -1,11 +1,18 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit"
-import { counterReducer, logsReducer } from "../reducers/reducers"
+import {
+  addLogsReducer,
+  counterReducer,
+  logsReducer,
+  membersReducer,
+} from "../reducers/reducers"
 
 export const store = configureStore({
   reducer: {
     //This is where we add reducers
     counter: counterReducer,
-    logs: logsReducer,
+    getLogs: logsReducer,
+    addLogs: addLogsReducer,
+    members: membersReducer,
   },
 })
 
