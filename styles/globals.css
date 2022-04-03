@@ -36,6 +36,15 @@ p {
 .custom-badge-bg-green {
   background-color: green;
 }
+.toast.red {
+  background-color: red !important;
+}
+.toast.green {
+  background-color: green !important;
+}
+.toast.yellow {
+  background-color: #ff9800 !important;
+}
 .log-content {
   width: 100%;
   display: flex;

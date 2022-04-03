@@ -8,6 +8,7 @@ export const decrement = createAction("counter/decrement")
 export const incrementByAmount = createAction<number>(
   "counter/incrementByAmount"
 )
+export const resetCreated = createAction("log/resetAdd")
 
 export const getLogs = createAsyncThunk("log/getlogs", async () => {
   const { data } = await axios.get("http://localhost:5500/logs")

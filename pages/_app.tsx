@@ -1,5 +1,6 @@
 import "../styles/globals.css"
 import "../styles/checkbox.css"
+import "../styles/preloader.css"
 import React from "react"
 import type { AppProps } from "next/app"
 import { Provider } from "react-redux"

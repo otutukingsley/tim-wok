@@ -20,4 +20,5 @@ export type LogState = {
   members?: Members[]
   pending?: boolean
   error?: string
+  created?: boolean
 }

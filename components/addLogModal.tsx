@@ -1,11 +1,16 @@
-import React, { ChangeEvent, MouseEventHandler } from "react"
-import { getMembers } from "../utils/reduxstore/actions/actions"
-import { getMembersSelector } from "../utils/reduxstore/selectors/selectors"
+import React, { ChangeEvent } from "react"
+import { addLogs, getMembers } from "../utils/reduxstore/actions/actions"
+import {
+  getMembersSelector,
+  addLogsSelector,
+} from "../utils/reduxstore/selectors/selectors"
 import { useAppDispatch, useAppSelector } from "../utils/reduxstore/store/hooks"
+import PreLoader from "./preloader"
 
 const AddLogModal = () => {
   const dispatch = useAppDispatch()
   const { members, pending, error } = useAppSelector(getMembersSelector)
+  const { pending: addLogPending, created } = useAppSelector(addLogsSelector)
 
   const [modalState, setModalState] = React.useState<any>({
     description: "",
@@ -29,6 +34,7 @@ const AddLogModal = () => {
   }
 
   const onSubmit = () => {
+    const M = require("materialize-css/dist/js/materialize")
     const formData = {
       title,
       description,
@@ -37,7 +43,24 @@ const AddLogModal = () => {
       date,
     }
 
-    console.log(formData)
+    if (title === "" || description === "" || member === "") {
+      M.toast({
+        html: "Please enter a Title, Description and a Member",
+        classes: "red",
+      })
+    } else {
+      dispatch(addLogs(formData))
+      M.toast({
+        html: `Log added successfully by ${member}`,
+        classes: "green",
+      })
+      setModalState({
+        description: "",
+        title: "",
+        member: "",
+        type: "attention",
+      })
+    }
   }
 
   React.useEffect(() => {
@@ -155,7 +178,7 @@ const AddLogModal = () => {
           className="modal-close btn-flat submit-btn"
           onClick={() => onSubmit()}
         >
-          Add Log
+          Add Log {addLogPending && <PreLoader />}
         </a>
       </div>
     </div>

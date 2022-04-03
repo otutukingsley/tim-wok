@@ -6,6 +6,7 @@ import {
   getLogs,
   addLogs,
   getMembers,
+  resetCreated,
 } from "../actions/actions"
 import { LogState } from "../types/types"
 
@@ -15,6 +16,16 @@ const initialState: LogState = {
   pending: false,
   error: "",
   members: [],
+  created: false,
+}
+
+const initialGetState: LogState = {
+  value: 0,
+  logs: [],
+  pending: true,
+  error: "",
+  members: [],
+  created: false,
 }
 
 export const counterReducer = createReducer(initialState, (builder) => {
@@ -30,7 +41,7 @@ export const counterReducer = createReducer(initialState, (builder) => {
     })
 })
 
-export const logsReducer = createReducer(initialState, (builder) => {
+export const logsReducer = createReducer(initialGetState, (builder) => {
   builder
     .addCase(getLogs.pending, (state) => {
       state.pending = true
@@ -52,15 +63,20 @@ export const addLogsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(addLogs.fulfilled, (state, { payload }) => {
       state.pending = false
-      state.logs = state.logs && [...state.logs, payload]
+      // state.logs = state.logs ? [payload, ...state.logs] : []
+      state.created = true
     })
     .addCase(addLogs.rejected, (state, { error }) => {
       state.pending = false
       state.error = error.message
+      state.created = true
+    })
+    .addCase(resetCreated, (state) => {
+      state.created = false
     })
 })
 
-export const membersReducer = createReducer(initialState, (builder) => {
+export const membersReducer = createReducer(initialGetState, (builder) => {
   builder
     .addCase(getMembers.pending, (state) => {
       state.pending = true

@@ -17,20 +17,12 @@
       "id": 2
     },
     {
-      "description": "Multiple inputs functionality",
-      "title": "Multiple inputs functionality",
-      "type": "attention",
+      "title": "Added Log",
+      "description": "Testing toast color",
+      "type": "done",
       "member": "Richie otutu",
-      "date": "2021-11-06T01:14:19.031Z",
+      "date": "2022-04-03T09:36:50.814Z",
       "id": 3
-    },
-    {
-      "description": "Multiple inputs functionality",
-      "title": "Multiple inputs functionality",
-      "type": "attention",
-      "member": "Richie otutu4444",
-      "date": "2021-11-06T01:14:19.031Z",
-      "id": 4
     }
   ],
   "members": [

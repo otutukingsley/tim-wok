@@ -7,10 +7,12 @@ import {
   incrementByAmount,
   getLogs,
   addLogs,
+  resetCreated,
 } from "../utils/reduxstore/actions/actions"
 import {
   countSelector,
   getLogsSelector,
+  addLogsSelector,
 } from "../utils/reduxstore/selectors/selectors"
 import Layout, { siteTitle } from "../components/layout"
 // import Head from "next/head"
@@ -23,11 +25,16 @@ const Home: NextPage = () => {
   const dispatch = useAppDispatch()
   const { value } = useAppSelector(countSelector)
   const { logs, pending, error } = useAppSelector(getLogsSelector)
+  const { created } = useAppSelector(addLogsSelector)
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0)
 
   React.useEffect(() => {
-    dispatch(getLogs())
-  }, [dispatch])
+    if (created || (logs?.length === 0 && pending)) {
+      dispatch(resetCreated())
+      dispatch(getLogs())
+    }
+  }, [dispatch, created, logs?.length, pending])
+
   return (
     <Layout>
       {/* <h1>Welcome to the greatest app in the world!</h1>
@@ -63,9 +70,11 @@ const Home: NextPage = () => {
       ) : (
         <ul className="collection shadow">
           {logs &&
-            logs.map((log) => {
-              return <LogItems key={log.id} logs={log} />
-            })}
+            [...logs]
+              .sort((a, b) => (a.date > b.date ? -1 : 1))
+              .map((log) => {
+                return <LogItems key={log.id} logs={log} />
+              })}
         </ul>
       )}
     </Layout>
