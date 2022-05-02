@@ -1,5 +1,7 @@
 import React, { FC } from "react"
 import { Logs } from "../utils/reduxstore/types/types"
+import { getLogId } from "../utils/reduxstore/actions/actions"
+import { useAppDispatch } from "../utils/reduxstore/store/hooks"
 import Moment from "react-moment"
 
 type LogProps = {
@@ -7,6 +9,7 @@ type LogProps = {
 }
 
 const LogItems: FC<LogProps> = ({ logs }) => {
+  const dispatch = useAppDispatch()
   return (
     <li className="collection-item custom-list">
       <div
@@ -23,7 +26,11 @@ const LogItems: FC<LogProps> = ({ logs }) => {
 
       <div className="log-content">
         <div>
-          <a href="#view-log-modal" className="modal-trigger view-log">
+          <a
+            href="#view-log-modal"
+            className="view-log modal-trigger"
+            onClick={() => dispatch(getLogId(logs.id))}
+          >
             {logs.title}
           </a>
           <span className="grey-text">

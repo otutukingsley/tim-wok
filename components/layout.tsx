@@ -2,6 +2,7 @@ import Head from "next/head"
 import AddBtn from "./addBtn"
 import AddLogModal from "./addLogModal"
 import SearchBar from "./searchbar"
+import ViewLogModal from "./viewLogModal"
 
 export const siteTitle = "IT-Logger"
 const name = "Otutu Chinedu Kingsley"
@@ -15,14 +16,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        ></link>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"
-        ></link>
         <meta name="description" content="IT-Logger" />
         <meta
           property="og:image"
@@ -46,6 +39,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
         <AddBtn />
         <AddLogModal />
+        <ViewLogModal />
       </main>
     </>
   )

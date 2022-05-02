@@ -1,5 +1,5 @@
 import type { NextPage } from "next"
-import React from "react"
+import React, { ChangeEvent } from "react"
 import { useAppDispatch, useAppSelector } from "../utils/reduxstore/store/hooks"
 import {
   decrement,
@@ -17,7 +17,9 @@ import {
 import Layout, { siteTitle } from "../components/layout"
 // import Head from "next/head"
 // import Image from "next/image"
-import styles from "../styles/Home.module.css"
+import MDEditor from "@uiw/react-md-editor"
+import "@uiw/react-md-editor/dist/markdown-editor.css"
+import "@uiw/react-markdown-preview/dist/markdown.css"
 import LogItems from "../components/logitems"
 import Loader from "../components/loader"
 
@@ -77,6 +79,9 @@ const Home: NextPage = () => {
               })}
         </ul>
       )}
+      <div>
+        <MDEditor value="**Hello world**" />
+      </div>
     </Layout>
   )
 }

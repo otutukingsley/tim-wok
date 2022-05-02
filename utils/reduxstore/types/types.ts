@@ -21,4 +21,6 @@ export type LogState = {
   pending?: boolean
   error?: string
   created?: boolean
+  id?: number
+  log?: Logs
 }

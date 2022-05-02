@@ -4,6 +4,7 @@ import {
   counterReducer,
   logsReducer,
   membersReducer,
+  singleLogReducer,
 } from "../reducers/reducers"
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     getLogs: logsReducer,
     addLogs: addLogsReducer,
     members: membersReducer,
+    singleLog: singleLogReducer,
   },
 })
 

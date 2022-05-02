@@ -4,3 +4,7 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+//markdown config
+const removeImports = require("next-remove-imports")()
+module.exports = removeImports({})

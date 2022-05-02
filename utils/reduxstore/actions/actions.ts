@@ -31,3 +31,13 @@ export const getMembers = createAsyncThunk("members/getmembers", async () => {
   const { data } = await axios.get("http://localhost:5500/members")
   return data as Members[]
 })
+
+export const getLogId = createAction<number | undefined>("logs/getlogsid")
+
+export const getSingleLog = createAsyncThunk(
+  "log/getsinglelogs",
+  async (id: number) => {
+    const { data } = await axios.get(`http://localhost:5500/logs/${id}`)
+    return data as Logs
+  }
+)

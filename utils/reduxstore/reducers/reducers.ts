@@ -7,6 +7,8 @@ import {
   addLogs,
   getMembers,
   resetCreated,
+  getLogId,
+  getSingleLog,
 } from "../actions/actions"
 import { LogState } from "../types/types"
 
@@ -86,6 +88,24 @@ export const membersReducer = createReducer(initialGetState, (builder) => {
       state.members = payload
     })
     .addCase(getMembers.rejected, (state, { error }) => {
+      state.pending = false
+      state.error = error.message
+    })
+})
+
+export const singleLogReducer = createReducer(initialGetState, (builder) => {
+  builder
+    .addCase(getLogId, (state, { payload }) => {
+      state.id = payload
+    })
+    .addCase(getSingleLog.pending, (state) => {
+      state.pending = true
+    })
+    .addCase(getSingleLog.fulfilled, (state, { payload }) => {
+      state.pending = false
+      state.log = payload
+    })
+    .addCase(getSingleLog.rejected, (state, { error }) => {
       state.pending = false
       state.error = error.message
     })

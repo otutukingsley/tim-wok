@@ -138,6 +138,68 @@ ul.dropdown-content.select-dropdown li span {
   animation-delay: 0;
 }
 
+.log-card-title {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+.log-card-member {
+  font-weight: 500;
+}
+
+.log-card-status {
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+}
+
+.log-card-status-title {
+  margin: 25px 0 4px 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #5e6c84;
+}
+.status-box {
+  width: 100%;
+  margin: 5px 0;
+  height: auto;
+}
+.status-box-tag {
+  height: 32px;
+  display: block;
+  width: auto;
+  border-radius: 3px;
+  float: left;
+  font-weight: 600;
+  box-sizing: border-box;
+  line-height: 30px;
+  margin: 5px 0 35px 0;
+  min-width: 40px;
+  padding: 0 12px;
+  text-transform: capitalize;
+}
+
+.log-card-status-done {
+  background-color: green;
+  color: white;
+}
+
+.log-card-status-progress {
+  background-color: #ff9800;
+  color: white;
+}
+.log-card-status-attention {
+  background-color: red;
+  color: white;
+}
+
+.log-card-description {
+  clear: both;
+  margin: 20px 0 0 0;
+  display: block;
+}
+
 @keyframes lds-facebook {
   0% {
     top: 8px;

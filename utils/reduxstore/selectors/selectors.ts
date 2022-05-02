@@ -16,3 +16,10 @@ export const addLogsSelector = createSelector(addLogs, (state) => state)
 //getMembers Selector
 export const getMembers = (state: RootState) => state.members
 export const getMembersSelector = createSelector(getMembers, (state) => state)
+
+//getSingleLog Selector
+export const getSingleLog = (state: RootState) => state.singleLog
+export const getSingleLogSelector = createSelector(
+  getSingleLog,
+  (state) => state
+)
