@@ -5,6 +5,7 @@ import {
   membersReducer,
   singleLogReducer,
   editLogReducer,
+  deleteLogReducer,
 } from "../reducers/reducers"
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
     members: membersReducer,
     singleLog: singleLogReducer,
     editLog: editLogReducer,
+    deleteLog: deleteLogReducer,
   },
 })
 

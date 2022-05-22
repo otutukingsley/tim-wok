@@ -23,3 +23,7 @@ export const getSingleLogSelector = createSelector(
 //editLog Selector
 export const editLog = (state: RootState) => state.editLog
 export const editLogSelector = createSelector(editLog, (state) => state)
+
+//deleteLog Selector
+export const deleteLog = (state: RootState) => state.deleteLog
+export const deleteLogSelector = createSelector(deleteLog, (state) => state)

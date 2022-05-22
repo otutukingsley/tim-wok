@@ -23,4 +23,5 @@ export interface LogState {
   id?: number
   log?: Logs
   current?: Logs
+  message?: string
 }

@@ -1,11 +1,18 @@
 import type { NextPage } from "next"
 import React from "react"
 import { useAppDispatch, useAppSelector } from "../utils/reduxstore/store/hooks"
-import { getLogs, resetCreated } from "../utils/reduxstore/actions/actions"
+import {
+  clearCurrent,
+  getLogs,
+  resetCreated,
+  resetMessage,
+} from "../utils/reduxstore/actions/actions"
 import {
   getLogsSelector,
   addLogsSelector,
   editLogSelector,
+  getSingleLogSelector,
+  deleteLogSelector,
 } from "../utils/reduxstore/selectors/selectors"
 import Layout from "../components/layout"
 import LogItems from "../components/logitems"
@@ -16,13 +23,17 @@ const Home: NextPage = () => {
   const { logs, pending, error } = useAppSelector(getLogsSelector)
   const { created } = useAppSelector(addLogsSelector)
   const { created: edited } = useAppSelector(editLogSelector)
+  const { current } = useAppSelector(getSingleLogSelector)
+  const { message } = useAppSelector(deleteLogSelector)
 
   React.useEffect(() => {
-    if (created || edited || (logs?.length === 0 && pending)) {
+    if (created || edited || message || (logs?.length === 0 && pending)) {
       dispatch(resetCreated())
+      dispatch(clearCurrent())
+      dispatch(resetMessage())
       dispatch(getLogs())
     }
-  }, [dispatch, created, edited, logs?.length, pending])
+  }, [dispatch, created, edited, message, logs?.length, pending])
 
   return (
     <Layout>
@@ -37,12 +48,17 @@ const Home: NextPage = () => {
         <li className="collection-item">{error}</li>
       ) : (
         <ul className="collection shadow">
-          {logs &&
+          {logs?.length ? (
             [...logs]
-              .sort((a, b) => (a.date > b.date ? -1 : 1))
+              .sort((a, b) => (a.date > b.date ? 1 : -1))
               .map((log) => {
                 return <LogItems key={log.id} logs={log} />
-              })}
+              })
+          ) : (
+            <li>
+              <h4 className="text-center unbold">No Activity Logs Available</h4>
+            </li>
+          )}
         </ul>
       )}
     </Layout>

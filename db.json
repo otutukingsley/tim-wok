@@ -1,47 +1,18 @@
 {
   "logs": [
     {
-      "title": "Added Log",
-      "description": "Testing put",
+      "title": "Men with game",
+      "description": "Space by shola ajegede agege",
       "type": "done",
-      "member": "Kendrick Perkins",
+      "member": "Richie otutu",
       "id": 1
     },
     {
-      "title": "Backend server right",
-      "description": "Backend server",
-      "type": "done",
-      "member": "Richie otutu",
-      "id": 2
-    },
-    {
-      "title": "Added Log",
-      "description": "Testing toast color",
-      "type": "done",
-      "member": "Richie otutu",
-      "date": "2022-04-03T09:36:50.814Z",
-      "id": 3
-    },
-    {
-      "title": "Welcome back",
-      "description": "After two weeks? NA",
-      "type": "progress",
+      "title": "Did she do it",
+      "description": "Did she?",
+      "type": "attention",
       "member": "Miles Bridges",
-      "id": 4
-    },
-    {
-      "title": "Laptop Broken",
-      "description": "I was using it this night, and flexgate cut up to me!!! I hope it lasts till my next pay to get a new one.\nI am pissed right now sigh!!! I AM FUCKED",
-      "type": "attention",
-      "member": "Richie otutu",
-      "id": 5
-    },
-    {
-      "title": "hhh",
-      "description": "hhhh OOO",
-      "type": "attention",
-      "member": "Richie otutu",
-      "id": 6
+      "id": 2
     }
   ],
   "members": [

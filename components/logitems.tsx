@@ -43,7 +43,7 @@ const LogItems: FC<LogProps> = ({ logs }) => {
           <a
             href="#delete-log-modal"
             className="modal-trigger secondary-content"
-            onClick={() => dispatch(getLogId(logs.id))}
+            onClick={() => dispatch(setCurrent(logs))}
           >
             <i className="material-icons grey-text">delete</i>
           </a>

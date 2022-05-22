@@ -6,6 +6,9 @@ import {
   resetCreated,
   editLogs,
   setCurrent,
+  deleteLogs,
+  resetMessage,
+  clearCurrent,
 } from "../actions/actions"
 import { LogState, Logs } from "../types/types"
 
@@ -16,6 +19,7 @@ const initialState: LogState = {
   members: [],
   created: false,
   current: {} as Logs,
+  message: "",
 }
 
 const initialGetState: LogState = {
@@ -76,9 +80,13 @@ export const membersReducer = createReducer(initialGetState, (builder) => {
 })
 
 export const singleLogReducer = createReducer(initialGetState, (builder) => {
-  builder.addCase(setCurrent, (state, { payload }) => {
-    state.current = payload
-  })
+  builder
+    .addCase(setCurrent, (state, { payload }) => {
+      state.current = payload
+    })
+    .addCase(clearCurrent, (state) => {
+      state.current = {} as Logs
+    })
 })
 
 export const editLogReducer = createReducer(initialState, (builder) => {
@@ -97,5 +105,24 @@ export const editLogReducer = createReducer(initialState, (builder) => {
     })
     .addCase(resetCreated, (state) => {
       state.created = false
+    })
+})
+
+export const deleteLogReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(deleteLogs.pending, (state) => {
+      state.pending = true
+    })
+    .addCase(deleteLogs.fulfilled, (state, { payload }) => {
+      state.pending = false
+      state.message = payload
+    })
+    .addCase(deleteLogs.rejected, (state, { error }) => {
+      state.pending = false
+      state.error = error.message
+      state.message = ""
+    })
+    .addCase(resetMessage, (state) => {
+      state.message = ""
     })
 })

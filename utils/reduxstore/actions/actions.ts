@@ -3,6 +3,7 @@ import axios from "axios"
 import { Logs, Members } from "../types/types"
 
 export const resetCreated = createAction("log/resetAdd")
+export const resetMessage = createAction("log/resetMessage")
 
 export const getLogs = createAsyncThunk("log/getlogs", async () => {
   const { data } = await axios.get("http://localhost:5500/logs")
@@ -29,6 +30,7 @@ export const getMembers = createAsyncThunk("members/getmembers", async () => {
 export const getLogId = createAction<number | undefined>("logs/getlogsid")
 
 export const setCurrent = createAction<Logs>("logs/setcurrent")
+export const clearCurrent = createAction("log/resetCurrent")
 
 export const editLogs = createAsyncThunk<Logs, Logs>(
   "log/editlogs",
@@ -48,3 +50,9 @@ export const editLogs = createAsyncThunk<Logs, Logs>(
     return data as Logs
   }
 )
+
+export const deleteLogs = createAsyncThunk("log/editlogs", async (id: any) => {
+  const response = await axios.delete(`http://localhost:5500/logs/${id}`)
+  response.data.message = "Log deleted successfully"
+  return response.data.message as string
+})
