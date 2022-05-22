@@ -138,6 +138,11 @@ ul.dropdown-content.select-dropdown li span {
   animation-delay: 0;
 }
 
+.log-card-title-wrapper {
+  display: block;
+  margin-left: 35px;
+}
+
 .log-card-title {
   font-weight: 700;
   margin-bottom: 0;
@@ -149,9 +154,8 @@ ul.dropdown-content.select-dropdown li span {
 }
 
 .log-card-status {
-  margin: 10px 0;
+  margin: 10px 0 10px 35px;
   display: block;
-  width: 100%;
 }
 
 .log-card-status-title {
@@ -198,6 +202,27 @@ ul.dropdown-content.select-dropdown li span {
   clear: both;
   margin: 20px 0 0 0;
   display: block;
+}
+
+.title-badge {
+  float: left;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.desc-header {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 30px;
+}
+.log-card-desc-content {
+  clear: both;
+  margin-top: 10px;
+  margin-left: 35px;
+  background-color: #9e9e9e;
+  padding: 10px;
+  line-height: 150%;
+  color: white;
 }
 
 @keyframes lds-facebook {

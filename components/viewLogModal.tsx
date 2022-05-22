@@ -1,5 +1,5 @@
 import React from "react"
-import { getSingleLog } from "../utils/reduxstore/actions/actions"
+import { getSingleLog, resetId } from "../utils/reduxstore/actions/actions"
 import { getSingleLogSelector } from "../utils/reduxstore/selectors/selectors"
 import { useAppDispatch, useAppSelector } from "../utils/reduxstore/store/hooks"
 import Moment from "react-moment"
@@ -11,6 +11,7 @@ const ViewLogModal = () => {
   React.useEffect(() => {
     if (id) {
       dispatch(getSingleLog(id))
+      dispatch(resetId())
     }
   }, [dispatch, id])
 
@@ -20,7 +21,10 @@ const ViewLogModal = () => {
         {pending && <div>Loading</div>}
         {log && (
           <>
-            <div>
+            <div className="title-badge">
+              <i className="material-icons grey-text">dashboard</i>
+            </div>
+            <div className="log-card-title-wrapper">
               <h3 className="log-card-title">{log.title}</h3>
               <span className="grey-text">
                 last updated by{" "}
@@ -50,9 +54,12 @@ const ViewLogModal = () => {
               </div>
             </div>
             <div className="log-card-description">
-              <h6>Description</h6>
-              <p>{log.description}</p>
+              <div className="title-badge">
+                <i className="material-icons grey-text">description</i>
+              </div>
+              <h6 className="desc-header">Description</h6>
             </div>
+            <div className="log-card-desc-content">{log.description}</div>
           </>
         )}
       </div>

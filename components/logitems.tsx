@@ -40,10 +40,18 @@ const LogItems: FC<LogProps> = ({ logs }) => {
           </span>
         </div>
         <div>
-          <a href="#!" className="secondary-content">
+          <a
+            href="#!"
+            className="secondary-content"
+            // onClick={() => dispatch(getLogId(logs.id))}
+          >
             <i className="material-icons grey-text">delete</i>
           </a>
-          <a href="#edit-log-modal" className="modal-trigger secondary-content">
+          <a
+            href="#edit-log-modal"
+            className="modal-trigger secondary-content"
+            onClick={() => dispatch(getLogId(logs.id))}
+          >
             <i className="material-icons grey-text">edit</i>
           </a>
         </div>

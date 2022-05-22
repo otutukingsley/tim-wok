@@ -5,6 +5,7 @@ import { getLogs, resetCreated } from "../utils/reduxstore/actions/actions"
 import {
   getLogsSelector,
   addLogsSelector,
+  editLogSelector,
 } from "../utils/reduxstore/selectors/selectors"
 import Layout from "../components/layout"
 import LogItems from "../components/logitems"
@@ -14,13 +15,14 @@ const Home: NextPage = () => {
   const dispatch = useAppDispatch()
   const { logs, pending, error } = useAppSelector(getLogsSelector)
   const { created } = useAppSelector(addLogsSelector)
+  const { created: edited } = useAppSelector(editLogSelector)
 
   React.useEffect(() => {
-    if (created || (logs?.length === 0 && pending)) {
+    if (created || edited || (logs?.length === 0 && pending)) {
       dispatch(resetCreated())
       dispatch(getLogs())
     }
-  }, [dispatch, created, logs?.length, pending])
+  }, [dispatch, created, edited, logs?.length, pending])
 
   return (
     <Layout>

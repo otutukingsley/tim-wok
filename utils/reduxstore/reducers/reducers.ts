@@ -9,6 +9,8 @@ import {
   resetCreated,
   getLogId,
   getSingleLog,
+  editLogs,
+  resetId,
 } from "../actions/actions"
 import { LogState } from "../types/types"
 
@@ -63,15 +65,14 @@ export const addLogsReducer = createReducer(initialState, (builder) => {
     .addCase(addLogs.pending, (state) => {
       state.pending = true
     })
-    .addCase(addLogs.fulfilled, (state, { payload }) => {
+    .addCase(addLogs.fulfilled, (state) => {
       state.pending = false
-      // state.logs = state.logs ? [payload, ...state.logs] : []
       state.created = true
     })
     .addCase(addLogs.rejected, (state, { error }) => {
       state.pending = false
       state.error = error.message
-      state.created = true
+      state.created = false
     })
     .addCase(resetCreated, (state) => {
       state.created = false
@@ -108,5 +109,30 @@ export const singleLogReducer = createReducer(initialGetState, (builder) => {
     .addCase(getSingleLog.rejected, (state, { error }) => {
       state.pending = false
       state.error = error.message
+    })
+    .addCase(resetId, (state) => {
+      state.id = undefined
+    })
+})
+
+export const editLogReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(getLogId, (state, { payload }) => {
+      state.id = payload
+    })
+    .addCase(editLogs.pending, (state) => {
+      state.pending = true
+    })
+    .addCase(editLogs.fulfilled, (state) => {
+      state.pending = false
+      state.created = true
+    })
+    .addCase(editLogs.rejected, (state, { error }) => {
+      state.pending = false
+      state.error = error.message
+      state.created = false
+    })
+    .addCase(resetCreated, (state) => {
+      state.created = false
     })
 })

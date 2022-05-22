@@ -1,19 +1,17 @@
 {
   "logs": [
     {
-      "description": "Fix navigation slider",
-      "title": "Fix navigation slider",
-      "type": "attention",
+      "title": "Added Log",
+      "description": "Testing put later",
+      "type": "done",
       "member": "Richie otutu",
-      "date": "2021-11-06T01:14:19.031Z",
       "id": 1
     },
     {
-      "description": "Backend server down",
       "title": "Backend server down",
+      "description": "Backend server up",
       "type": "done",
       "member": "Richie otutu",
-      "date": "2021-11-06T01:14:19.031Z",
       "id": 2
     },
     {
@@ -26,11 +24,24 @@
     },
     {
       "title": "Welcome back",
-      "description": "After two weeks??",
+      "description": "After two weeks? NA",
       "type": "progress",
       "member": "Miles Bridges",
-      "date": "2022-05-02T07:06:26.540Z",
       "id": 4
+    },
+    {
+      "title": "Laptop Broken",
+      "description": "I was using it this night, and flexgate cut up to me!!! I hope it lasts till my next pay to get a new one.\nI am pissed right now sigh!!! I AM FUCKED",
+      "type": "attention",
+      "member": "Richie otutu",
+      "id": 5
+    },
+    {
+      "title": "hhh",
+      "description": "hhhh OOO",
+      "type": "attention",
+      "member": "Richie otutu",
+      "id": 6
     }
   ],
   "members": [
