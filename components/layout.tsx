@@ -3,6 +3,7 @@ import AddBtn from "./addBtn"
 import AddLogModal from "./addLogModal"
 import SearchBar from "./searchbar"
 import ViewLogModal from "./viewLogModal"
+import EditLogsModal from "./editLogsModal"
 
 export const siteTitle = "IT-Logger"
 const name = "Otutu Chinedu Kingsley"
@@ -40,6 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <AddBtn />
         <AddLogModal />
         <ViewLogModal />
+        <EditLogsModal />
       </main>
     </>
   )

@@ -1,4 +1,4 @@
-export type Logs = {
+export interface Logs {
   description: string
   title: string
   type: string
@@ -7,15 +7,14 @@ export type Logs = {
   id?: any
 }
 
-export type Members = {
+export interface Members {
   firstName: string
   lastName: string
   email: string
   id?: any
 }
 
-export type LogState = {
-  value: number
+export interface LogState {
   logs?: Logs[]
   members?: Members[]
   pending?: boolean
@@ -23,4 +22,5 @@ export type LogState = {
   created?: boolean
   id?: number
   log?: Logs
+  current?: Logs
 }

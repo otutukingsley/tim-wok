@@ -1,7 +1,6 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit"
 import {
   addLogsReducer,
-  counterReducer,
   logsReducer,
   membersReducer,
   singleLogReducer,
@@ -11,7 +10,6 @@ import {
 export const store = configureStore({
   reducer: {
     //This is where we add reducers
-    counter: counterReducer,
     getLogs: logsReducer,
     addLogs: addLogsReducer,
     members: membersReducer,

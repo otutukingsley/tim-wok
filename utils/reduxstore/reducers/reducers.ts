@@ -1,49 +1,30 @@
 import { createReducer } from "@reduxjs/toolkit"
 import {
-  decrement,
-  increment,
-  incrementByAmount,
   getLogs,
   addLogs,
   getMembers,
   resetCreated,
-  getLogId,
-  getSingleLog,
   editLogs,
-  resetId,
+  setCurrent,
 } from "../actions/actions"
-import { LogState } from "../types/types"
+import { LogState, Logs } from "../types/types"
 
 const initialState: LogState = {
-  value: 0,
   logs: [],
   pending: false,
   error: "",
   members: [],
   created: false,
+  current: {} as Logs,
 }
 
 const initialGetState: LogState = {
-  value: 0,
   logs: [],
   pending: true,
   error: "",
   members: [],
   created: false,
 }
-
-export const counterReducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(increment, (state) => {
-      state.value++
-    })
-    .addCase(decrement, (state) => {
-      state.value--
-    })
-    .addCase(incrementByAmount, (state, action) => {
-      state.value += action.payload
-    })
-})
 
 export const logsReducer = createReducer(initialGetState, (builder) => {
   builder
@@ -95,31 +76,13 @@ export const membersReducer = createReducer(initialGetState, (builder) => {
 })
 
 export const singleLogReducer = createReducer(initialGetState, (builder) => {
-  builder
-    .addCase(getLogId, (state, { payload }) => {
-      state.id = payload
-    })
-    .addCase(getSingleLog.pending, (state) => {
-      state.pending = true
-    })
-    .addCase(getSingleLog.fulfilled, (state, { payload }) => {
-      state.pending = false
-      state.log = payload
-    })
-    .addCase(getSingleLog.rejected, (state, { error }) => {
-      state.pending = false
-      state.error = error.message
-    })
-    .addCase(resetId, (state) => {
-      state.id = undefined
-    })
+  builder.addCase(setCurrent, (state, { payload }) => {
+    state.current = payload
+  })
 })
 
 export const editLogReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(getLogId, (state, { payload }) => {
-      state.id = payload
-    })
     .addCase(editLogs.pending, (state) => {
       state.pending = true
     })

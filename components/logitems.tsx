@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { Logs } from "../utils/reduxstore/types/types"
-import { getLogId } from "../utils/reduxstore/actions/actions"
+import { getLogId, setCurrent } from "../utils/reduxstore/actions/actions"
 import { useAppDispatch } from "../utils/reduxstore/store/hooks"
 import Moment from "react-moment"
 
@@ -29,7 +29,7 @@ const LogItems: FC<LogProps> = ({ logs }) => {
           <a
             href="#view-log-modal"
             className="view-log modal-trigger"
-            onClick={() => dispatch(getLogId(logs.id))}
+            onClick={() => dispatch(setCurrent(logs))}
           >
             {logs.title}
           </a>
@@ -41,16 +41,16 @@ const LogItems: FC<LogProps> = ({ logs }) => {
         </div>
         <div>
           <a
-            href="#!"
-            className="secondary-content"
-            // onClick={() => dispatch(getLogId(logs.id))}
+            href="#delete-log-modal"
+            className="modal-trigger secondary-content"
+            onClick={() => dispatch(getLogId(logs.id))}
           >
             <i className="material-icons grey-text">delete</i>
           </a>
           <a
             href="#edit-log-modal"
             className="modal-trigger secondary-content"
-            onClick={() => dispatch(getLogId(logs.id))}
+            onClick={() => dispatch(setCurrent(logs))}
           >
             <i className="material-icons grey-text">edit</i>
           </a>

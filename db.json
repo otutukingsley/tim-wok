@@ -2,14 +2,14 @@
   "logs": [
     {
       "title": "Added Log",
-      "description": "Testing put later",
+      "description": "Testing put",
       "type": "done",
-      "member": "Richie otutu",
+      "member": "Kendrick Perkins",
       "id": 1
     },
     {
-      "title": "Backend server down",
-      "description": "Backend server up",
+      "title": "Backend server right",
+      "description": "Backend server",
       "type": "done",
       "member": "Richie otutu",
       "id": 2
