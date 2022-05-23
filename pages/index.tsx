@@ -55,7 +55,7 @@ const Home: NextPage = () => {
                 return <LogItems key={log.id} logs={log} />
               })
           ) : (
-            <li>
+            <li className="collection-item custom-list">
               <h4 className="text-center unbold">No Activity Logs Available</h4>
             </li>
           )}

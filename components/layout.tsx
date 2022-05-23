@@ -5,6 +5,7 @@ import SearchBar from "./searchbar"
 import ViewLogModal from "./viewLogModal"
 import EditLogsModal from "./editLogsModal"
 import DeleteLogModal from "./deleteLogModal"
+import MembersListModal from "./membersListModal"
 
 export const siteTitle = "IT-Logger"
 const name = "Otutu Chinedu Kingsley"
@@ -44,6 +45,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <ViewLogModal />
         <EditLogsModal />
         <DeleteLogModal />
+        <MembersListModal />
       </main>
     </>
   )

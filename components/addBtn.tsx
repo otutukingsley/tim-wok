@@ -14,7 +14,7 @@ const AddBtn = () => {
       <ul>
         <li>
           <a
-            href="#tech-list-modal"
+            href="#members-list-modal"
             className="btn-floating green modal-trigger tooltipped"
             data-position="left"
             data-tooltip="Members"
@@ -24,7 +24,7 @@ const AddBtn = () => {
         </li>
         <li>
           <a
-            href="#add-tech-modal"
+            href="#add-members-modal"
             className="btn-floating red modal-trigger tooltipped"
             data-position="left"
             data-tooltip="Add a Member"
